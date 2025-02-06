@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # name: discourse-search-extensions
 # about: An extension to search to allow you to search messages for involved users as well as those that have posted
-# version: 0.0.1
+# version: 0.0.2
 # authors: Robert Barrow
 # url: https://github.com/merefield/discourse-search-extensions
 
