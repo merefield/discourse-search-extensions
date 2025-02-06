@@ -26,8 +26,7 @@ after_initialize do
         user_id = @guardian.user&.id if !user_id && username == "me"
 
         if user_id
-          posts.joins(:topic)
-            .where("posts.user_id = ? OR topics.id IN (SELECT topic_id FROM topic_users WHERE user_id = ?)", user_id, user_id)
+          posts.where("posts.user_id = ? OR posts.topic_id IN (SELECT topic_id FROM topic_users WHERE user_id = ?)", user_id, user_id)
         else
           posts.where("1 = 0")
         end
