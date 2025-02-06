@@ -1,0 +1,4 @@
+plugins:
+  search_extensions_enabled:
+    default: true
+    client: true
