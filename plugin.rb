@@ -15,6 +15,8 @@ require_relative "lib/search_extensions/engine"
 
 after_initialize do
   reloadable_patch do
+    # Because we are adding a new filter, we need to use class_eval as it's not a method that can be overridden
+    # rubocop:disable Discourse/Plugins/NoMonkeyPatching
     Search.class_eval do
       advanced_filter(/\A\~(\S+)\z/i) do |posts, match|
         username = User.normalize_username(match)
@@ -31,5 +33,6 @@ after_initialize do
         end
       end
     end
+    # rubocop:enable Discourse/Plugins/NoMonkeyPatching
   end
 end
